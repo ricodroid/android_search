@@ -14,22 +14,46 @@ import com.example.recyclerviewticktock.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
+    private lateinit var tagRecycleView: RecyclerView
     private lateinit var searchView: SearchView
     private var mList = ArrayList<CardDate>()
+    private var mTagList = ArrayList<TagDate>()
     private lateinit var adapter: CardAdapter
+    private lateinit var tagAdapter: TagAdapter
 
     private val mainViewModel: MainViewModel by lazy {
         ViewModelProvider(this, MainViewModel.Factory(application))[MainViewModel::class.java]
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+            super.onCreate(savedInstanceState)
 
-        val binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+            val binding = ActivityMainBinding.inflate(layoutInflater)
+            setContentView(binding.root)
 
-        recyclerView = binding.recyclerView
-        searchView = findViewById(R.id.searchView)
+            tagRecycleView = binding.tagRecyclerView
+            tagRecycleView.setHasFixedSize(true)
+            tagRecycleView.layoutManager = GridLayoutManager(this, 4).apply {
+                spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+                    // TODO ここで、テキストのサイズが大きい場合は、幅を大きくとりたい
+                    override fun getSpanSize(position: Int): Int {
+                        val item = mTagList[position]
+                        return if (isLargeItem(item)) {
+                            2 // 大きいアイテムの場合は2つのサイズを使用
+                        } else {
+                            1 // 通常のアイテムの場合は1つのサイズを使用
+                        }
+                    }
+                }
+            }
+            // https://kumaskun.hatenablog.com/entry/2022/11/20/104902 // ここに、リストの可変サイズのハックがある
+
+            addTagList()
+            tagAdapter = TagAdapter(mTagList)
+            tagRecycleView.adapter = tagAdapter
+
+            recyclerView = binding.recyclerView
+            searchView = findViewById(R.id.searchView)
 
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = GridLayoutManager(this, 2, RecyclerView.VERTICAL, false)
@@ -37,6 +61,8 @@ class MainActivity : AppCompatActivity() {
         addDataTolist()
         adapter = CardAdapter(mList)
         recyclerView.adapter = adapter
+
+        binding.tagTitle.text = "タグリスト"
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
             View.OnFocusChangeListener {
@@ -56,10 +82,13 @@ class MainActivity : AppCompatActivity() {
                     // フォーカスが外れた状態での処理
                 }
             }
-
-
         })
+    }
 
+    private fun isLargeItem(item: TagDate): Boolean {
+        // セル内の値のサイズに応じて大きいアイテムかどうかを判断するロジック
+        // ここでは例として、TagItemが大きい場合を判断する条件を設定しています
+        return item.tag.length > 8 // 例: テキストの長さが10以上の場合を大きいアイテムとして扱う
     }
 
     private fun filterList(query: String?) {
@@ -91,6 +120,16 @@ class MainActivity : AppCompatActivity() {
         mList.add(CardDate("Swift", R.drawable.baseline_thumb_up_off_alt_24))
         mList.add(CardDate("JavaScript", R.drawable.baseline_thumb_up_off_alt_24))
         mList.add(CardDate("Obc", R.drawable.baseline_thumb_up_off_alt_24))
+    }
+
+    private fun addTagList() {
+        mTagList.add(TagDate("#タグ1タ"))
+        mTagList.add(TagDate("#タグ2"))
+        mTagList.add(TagDate("#タグ1グ1グ3"))
+        mTagList.add(TagDate("#タグ4タグ4タグ4タグ4タグ4タグ4aa"))
+        mTagList.add(TagDate("#タグdfasrer1グ1グ5"))
+        mTagList.add(TagDate("#タグ6"))
+        mTagList.add(TagDate("#タグ7"))
     }
 
 }
