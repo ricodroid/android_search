@@ -1,6 +1,7 @@
 package com.example.recyclerviewticktock
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.widget.SearchView
 import java.util.Locale
@@ -26,34 +27,43 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-            super.onCreate(savedInstanceState)
+        super.onCreate(savedInstanceState)
 
-            val binding = ActivityMainBinding.inflate(layoutInflater)
-            setContentView(binding.root)
+        val binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-            tagRecycleView = binding.tagRecyclerView
-            tagRecycleView.setHasFixedSize(true)
-            tagRecycleView.layoutManager = GridLayoutManager(this, 4).apply {
-                spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
-                    // TODO ここで、テキストのサイズが大きい場合は、幅を大きくとりたい
-                    override fun getSpanSize(position: Int): Int {
-                        val item = mTagList[position]
-                        return if (isLargeItem(item)) {
-                            2 // 大きいアイテムの場合は2つのサイズを使用
-                        } else {
-                            1 // 通常のアイテムの場合は1つのサイズを使用
-                        }
+        tagRecycleView = binding.tagRecyclerView
+        tagRecycleView.setHasFixedSize(true)
+        tagRecycleView.layoutManager = GridLayoutManager(this, 4).apply {
+            spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+                // TODO ここで、テキストのサイズが大きい場合は、幅を大きくとりたい
+                override fun getSpanSize(position: Int): Int {
+                    val item = mTagList[position]
+                    return if (isLargeItem(item)) {
+                        2 // 大きいアイテムの場合は2つのサイズを使用
+                    } else {
+                        1 // 通常のアイテムの場合は1つのサイズを使用
                     }
                 }
             }
-            // https://kumaskun.hatenablog.com/entry/2022/11/20/104902 // ここに、リストの可変サイズのハックがある
+        }
+        // https://kumaskun.hatenablog.com/entry/2022/11/20/104902 // ここに、リストの可変サイズのハックがある
 
-            addTagList()
-            tagAdapter = TagAdapter(mTagList)
-            tagRecycleView.adapter = tagAdapter
+        addTagList()
+        tagAdapter = TagAdapter(mTagList)
+        tagRecycleView.adapter = tagAdapter
 
-            recyclerView = binding.recyclerView
-            searchView = findViewById(R.id.searchView)
+        recyclerView = binding.recyclerView
+        searchView = findViewById(R.id.searchView)
+
+        tagAdapter.setOnTagCellClickListener(
+            object : TagAdapter.OnTagCellClickListener {
+                override fun onItemClick(tag: TagDate) {
+                    Log.d(tag.tag,"###クリックされました")
+                    // TODO クリックされたタグを、検索ボックスの中に入れる必要がある
+                }
+            }
+        )
 
         recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = GridLayoutManager(this, 2, RecyclerView.VERTICAL, false)
@@ -61,7 +71,6 @@ class MainActivity : AppCompatActivity() {
         addDataTolist()
         adapter = CardAdapter(mList)
         recyclerView.adapter = adapter
-
         binding.tagTitle.text = "タグリスト"
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
@@ -84,6 +93,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
     }
+
 
     private fun isLargeItem(item: TagDate): Boolean {
         // セル内の値のサイズに応じて大きいアイテムかどうかを判断するロジック
