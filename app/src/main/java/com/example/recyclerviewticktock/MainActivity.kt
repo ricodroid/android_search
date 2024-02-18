@@ -85,12 +85,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun addDataTolist() {
-        mList.add(CardDate("Java", R.drawable.baseline_thumb_up_off_alt_24))
-        mList.add(CardDate("Kotlin", R.drawable.baseline_thumb_up_off_alt_24))
-        mList.add(CardDate("Python", R.drawable.baseline_thumb_up_off_alt_24))
-        mList.add(CardDate("Swift", R.drawable.baseline_thumb_up_off_alt_24))
-        mList.add(CardDate("JavaScript", R.drawable.baseline_thumb_up_off_alt_24))
-        mList.add(CardDate("Obc", R.drawable.baseline_thumb_up_off_alt_24))
+        mList.add(CardDate("Good", R.drawable.baseline_thumb_up_off_alt_24))
+        mList.add(CardDate("Bad", R.drawable.bad))
+        mList.add(CardDate("soso", R.drawable.soso))
+        mList.add(CardDate("Happy", R.drawable.happy))
+        mList.add(CardDate("Lucky", R.drawable.lucky))
+        mList.add(CardDate("Love", R.drawable.love))
     }
 
 }
