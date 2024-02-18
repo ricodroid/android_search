@@ -7,7 +7,7 @@ import java.util.Locale
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerviewticktock.databinding.ActivityMainBinding
 
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         searchView = findViewById(R.id.searchView)
 
         recyclerView.setHasFixedSize(true)
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.layoutManager = GridLayoutManager(this, 2, RecyclerView.VERTICAL, false)
 
         addDataTolist()
         adapter = CardAdapter(mList)

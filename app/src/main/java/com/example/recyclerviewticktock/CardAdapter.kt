@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 class CardAdapter(var mList: List<CardDate>): RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
     inner class  CardViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val logo: ImageView = itemView.findViewById(R.id.logoIv)
-        val titleTv: TextView = itemView.findViewById(R.id.titleTv)
+//        val titleTv: TextView = itemView.findViewById(R.id.titleTv)
     }
 
     fun setFilterdList(mList: List<CardDate>){
@@ -23,12 +23,10 @@ class CardAdapter(var mList: List<CardDate>): RecyclerView.Adapter<CardAdapter.C
         return CardViewHolder(view)
     }
 
-    override fun getItemCount(): Int {
-        return mList.size
-    }
+    override fun getItemCount() = mList.size
 
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
        holder.logo.setImageResource(mList[position].logo)
-        holder.titleTv.text = mList[position].title
+//        holder.titleTv.text = mList[position].title
     }
 }
