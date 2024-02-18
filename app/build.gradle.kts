@@ -63,5 +63,5 @@ dependencies {
 
     // lifecycle-extensionsとlifecycle-compilerの追加
     implementation("androidx.lifecycle:lifecycle-extensions:2.2.0")
-    annotationProcessor("androidx.lifecycle:lifecycle-compiler:2.7.0")
+    annotationProcessor("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
 }
