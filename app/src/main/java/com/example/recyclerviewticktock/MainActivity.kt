@@ -1,14 +1,8 @@
 package com.example.recyclerviewticktock
 
-import android.graphics.Color
-import android.graphics.Typeface
 import android.os.Bundle
 import android.util.Log
-import android.view.Gravity
-import android.view.View
 import android.widget.LinearLayout
-import android.widget.TextView
-import androidx.appcompat.widget.SearchView
 import java.util.Locale
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -59,12 +53,16 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView = binding.recyclerView
 
+        // 検索ボックス内のタグを表現するレイアウト
+        val linearLayout = findViewById<LinearLayout>(R.id.search_box_layout)
+        val textViewManager = TagTextViewManager(this, linearLayout)
 
+        // タップされたタグのテキストを検索ボックスにaddしていく
         tagAdapter.setOnTagCellClickListener(
             object : TagAdapter.OnTagCellClickListener {
                 override fun onItemClick(tag: TagDate) {
-                    Log.d(tag.tag, "###クリックされました")
-                    // TODO クリックされたタグを、検索ボックスの中に入れる必要がある
+                    Log.d(tag.tag, "tag Tapped!")
+                    textViewManager.addTag(tag.tag)
                 }
             }
         )
@@ -76,44 +74,7 @@ class MainActivity : AppCompatActivity() {
         adapter = CardAdapter(mList)
         recyclerView.adapter = adapter
         binding.tagTitle.text = "タグリスト"
-
-        // 検索ボックス内のタグを表現するレイアウト
-        val linearLayout = findViewById<LinearLayout>(R.id.search_box_layout)
-
-        val texts = arrayOf("text1", "text2", "text3")
-        addTextViewsToLinearLayout(linearLayout, texts)
     }
-
-    private fun addTextViewsToLinearLayout(linearLayout: LinearLayout, texts: Array<String>) {
-        val context = linearLayout.context
-
-        for (text in texts) {
-            val textView = TextView(context)
-            val layoutParams = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.MATCH_PARENT
-            )
-            layoutParams.marginStart = context.resources.getDimensionPixelSize(R.dimen.view_margin_start)
-            layoutParams.topMargin = context.resources.getDimensionPixelSize(R.dimen.view_margin_top)
-            layoutParams.bottomMargin = context.resources.getDimensionPixelSize(R.dimen.view_margin_top)
-            textView.layoutParams = layoutParams
-            textView.text = text
-            textView.setTextColor(Color.WHITE)
-            textView.setTypeface(null, Typeface.BOLD)
-            textView.gravity = Gravity.CENTER
-            textView.setBackgroundColor(Color.parseColor("#87CEFA"))
-            val paddingStart = context.resources.getDimensionPixelSize(R.dimen.text_padding_start)
-            val paddingEnd = context.resources.getDimensionPixelSize(R.dimen.text_padding_start)
-
-            textView.setPaddingRelative(paddingStart, 0, paddingEnd, 0)
-
-            val shapeDrawable = context.resources.getDrawable(R.drawable.rounded_corners, null)
-            textView.background = shapeDrawable
-            linearLayout.addView(textView)
-        }
-    }
-
-
     private fun isLargeItem(item: TagDate): Boolean {
         // セル内の値のサイズに応じて大きいアイテムかどうかを判断するロジック
         // ここでは例として、TagItemが大きい場合を判断する条件を設定しています
