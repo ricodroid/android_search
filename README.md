@@ -12,7 +12,7 @@ https://github.com/ricodroid404/android_search/assets/157728255/fce2f69a-10fe-49
 https://github.com/ricodroid404/android_search/assets/157728255/9fa83afe-0953-4b72-8861-cc84e8fcd77e
 
 
-## feature/tool_bar_and_my_listブランチ RecyclerViewでグリッド一覧を3列で表示する
+## feature/tool_bar_and_my_listブランチ RecyclerViewでグリッド一覧を3列で表示する マテリアルツールバーも試す
 
 https://github.com/ricodroid404/android_search/assets/157728255/7f8bea7f-887d-452e-800e-dc392a2fc83e
 
