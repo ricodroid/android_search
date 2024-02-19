@@ -2,7 +2,6 @@ package com.example.recyclerviewticktock
 
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.appcompat.widget.SearchView
 import java.util.Locale
 import android.widget.Toast
@@ -16,7 +15,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var tagRecycleView: RecyclerView
-    private lateinit var searchView: SearchView
     private var mList = ArrayList<CardDate>()
     private var mTagList = ArrayList<TagDate>()
     private lateinit var adapter: CardAdapter
@@ -54,12 +52,12 @@ class MainActivity : AppCompatActivity() {
         tagRecycleView.adapter = tagAdapter
 
         recyclerView = binding.recyclerView
-        searchView = findViewById(R.id.searchView)
+
 
         tagAdapter.setOnTagCellClickListener(
             object : TagAdapter.OnTagCellClickListener {
                 override fun onItemClick(tag: TagDate) {
-                    Log.d(tag.tag,"###クリックされました")
+                    Log.d(tag.tag, "###クリックされました")
                     // TODO クリックされたタグを、検索ボックスの中に入れる必要がある
                 }
             }
@@ -73,25 +71,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
         binding.tagTitle.text = "タグリスト"
 
-        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
-            View.OnFocusChangeListener {
-            override fun onQueryTextSubmit(query: String?): Boolean {
-                return false
-            }
 
-            override fun onQueryTextChange(newText: String?): Boolean {
-                filterList(newText)
-                return true
-            }
-
-            override fun onFocusChange(v: View?, hasFocus: Boolean) {
-                if (hasFocus) {
-                    // フォーカスを持った状態での処理
-                } else {
-                    // フォーカスが外れた状態での処理
-                }
-            }
-        })
     }
 
 
