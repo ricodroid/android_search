@@ -2,6 +2,7 @@ package com.example.recyclerviewticktock
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.LinearLayout
 import java.util.Locale
 import android.widget.Toast
@@ -29,6 +30,18 @@ class MainActivity : AppCompatActivity() {
 
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // 検索画面なら
+        if (true) {
+            binding.tagRecyclerView.visibility = View.VISIBLE
+            binding.recyclerView.visibility = View.INVISIBLE
+            binding.tagTitle.text = "タグリスト"
+        } else {
+            // 検索結果画面なら
+            binding.tagRecyclerView.visibility = View.INVISIBLE
+            binding.recyclerView.visibility = View.VISIBLE
+            binding.tagTitle.text = "検索結果"
+        }
 
         tagRecycleView = binding.tagRecyclerView
         tagRecycleView.setHasFixedSize(true)
@@ -73,7 +86,7 @@ class MainActivity : AppCompatActivity() {
         addDataTolist()
         adapter = CardAdapter(mList)
         recyclerView.adapter = adapter
-        binding.tagTitle.text = "タグリスト"
+
     }
     private fun isLargeItem(item: TagDate): Boolean {
         // セル内の値のサイズに応じて大きいアイテムかどうかを判断するロジック
@@ -118,8 +131,5 @@ class MainActivity : AppCompatActivity() {
         mTagList.add(TagDate("#タグ1グ1グ3"))
         mTagList.add(TagDate("#タグ4タグ4タグ4タグ4タグ4タグ4aa"))
         mTagList.add(TagDate("#タグdfasrer1グ1グ5"))
-        mTagList.add(TagDate("#タグ6"))
-        mTagList.add(TagDate("#タグ7"))
     }
-
 }

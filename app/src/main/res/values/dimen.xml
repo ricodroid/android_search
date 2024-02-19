@@ -2,5 +2,5 @@
 <resources>
     <dimen name="view_margin_start">12dp</dimen>
     <dimen name="view_margin_top">8dp</dimen>
-    <dimen name="text_padding_start">6dp</dimen>
+    <dimen name="text_padding_start">7dp</dimen>
 </resources>
