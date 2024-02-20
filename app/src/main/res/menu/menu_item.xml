@@ -4,6 +4,9 @@
     <item
         android:id="@+id/action_edit"
         android:title="編集"
+        android:textColor="#00008b"
+        android:textSize="12dp"
+        android:textStyle="bold"
         android:titleTextColor="@android:color/black"
         app:showAsAction="always" />
 </menu>

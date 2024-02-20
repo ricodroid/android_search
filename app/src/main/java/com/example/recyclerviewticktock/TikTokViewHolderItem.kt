@@ -76,6 +76,7 @@ class TikTokViewHolderItem(private val binding: OneLayoutBinding) :
             onClick(v)
         }
         icon1.setOnClickListener { v ->
+            iconClickListener.onIconClick(v)
             onClick(v)
         }
         icon2.setOnClickListener { v ->

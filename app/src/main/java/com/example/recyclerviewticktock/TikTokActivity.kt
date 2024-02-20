@@ -40,7 +40,10 @@ class TikTokActivity : AppCompatActivity() {
 
                     R.id.icon1 -> {
                         // 人型アイコン
-                        println("アイコン1がクリックされました！")
+                        println("アイコン1がクリックされました！aa")
+                        // マイリスト画面へ遷移する
+                        val intent = Intent(this@TikTokActivity, MyListActivity::class.java)
+                        startActivity(intent)
                     }
 
                     R.id.icon2 -> {
