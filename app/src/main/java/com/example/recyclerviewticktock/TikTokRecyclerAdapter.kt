@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class TikTokRecyclerAdapter(private val context: Context): RecyclerView.Adapter<TikTokViewHolderItem>() {
+class TikTokRecyclerAdapter(private val context: Context, private val iconClickListener: OnIconClickListener): RecyclerView.Adapter<TikTokViewHolderItem>() {
     private val videoList = listOf(
         "android.resource://" + context.packageName + "/" + R.raw.move1,
         "android.resource://" + context.packageName + "/" + R.raw.move2,
@@ -23,6 +23,6 @@ class TikTokRecyclerAdapter(private val context: Context): RecyclerView.Adapter<
 
     override fun onBindViewHolder(holder: TikTokViewHolderItem, position: Int) {
         val videoPath = videoList[position]
-        holder.bind(videoPath)
+        holder.bind(videoPath, iconClickListener)
     }
 }

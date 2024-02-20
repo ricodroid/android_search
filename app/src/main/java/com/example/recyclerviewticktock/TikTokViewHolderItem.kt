@@ -34,7 +34,7 @@ class TikTokViewHolderItem(private val binding: OneLayoutBinding) :
     private var currentBadState = IconButtonState.UN_TAPPED
     private var currentSearchState = IconButtonState.UN_TAPPED
 
-    fun bind(videoPath: String) {
+    fun bind(videoPath: String, iconClickListener: OnIconClickListener) {
         // VideoViewの設定
         binding.iv.setVideoPath(videoPath)
         binding.iv.setOnPreparedListener { mp ->
@@ -88,6 +88,7 @@ class TikTokViewHolderItem(private val binding: OneLayoutBinding) :
             onClick(v)
         }
         icon5.setOnClickListener { v ->
+            iconClickListener.onIconClick(v)
             onClick(v)
         }
     }
@@ -186,6 +187,8 @@ class TikTokViewHolderItem(private val binding: OneLayoutBinding) :
             icon5 -> {
                 // サーチアイコン
                 println("アイコン5がクリックされました！")
+                // 検索画面へ遷移させる
+
             }
         }
     }
@@ -247,3 +250,4 @@ class TikTokViewHolderItem(private val binding: OneLayoutBinding) :
         button.setImageResource(imageResource)
     }
 }
+
