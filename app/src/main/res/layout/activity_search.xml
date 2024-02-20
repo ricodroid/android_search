@@ -14,7 +14,7 @@
         android:text="検索"
         app:layout_constraintBottom_toBottomOf="@+id/materialCardView"
         app:layout_constraintEnd_toStartOf="@+id/materialCardView"
-        app:layout_constraintHorizontal_weight="0.3"
+        app:layout_constraintHorizontal_weight="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/materialCardView" />
 
@@ -25,9 +25,9 @@
         app:cardCornerRadius="8dp"
         app:cardElevation="12dp"
         app:cardUseCompatPadding="true"
-        app:layout_constraintEnd_toStartOf="@id/button2"
+        app:layout_constraintEnd_toStartOf="@id/search_button"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_weight="4.1"
+        app:layout_constraintHorizontal_weight="6"
         app:layout_constraintStart_toEndOf="@id/button0"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -66,15 +66,18 @@
     </com.google.android.material.card.MaterialCardView>
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="0dp"
+        android:id="@+id/search_button"
+        android:layout_width="80dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="3dp"
+        android:background="@drawable/search_button_background"
         android:text="検索"
-        android:textSize="9dp"
+        android:textColor="#00008b"
+        android:textSize="12dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/materialCardView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintHorizontal_weight="0.7"
         app:layout_constraintStart_toEndOf="@+id/materialCardView"
         app:layout_constraintTop_toTopOf="@+id/materialCardView" />
 

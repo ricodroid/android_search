@@ -10,7 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.recyclerviewticktock.databinding.ActivityMainBinding
+import com.example.recyclerviewticktock.databinding.ActivitySearchBinding
 
 class SearchViewActivity : AppCompatActivity() {
 
@@ -28,7 +28,7 @@ class SearchViewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val binding = ActivityMainBinding.inflate(layoutInflater)
+        val binding = ActivitySearchBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         // 検索画面なら
