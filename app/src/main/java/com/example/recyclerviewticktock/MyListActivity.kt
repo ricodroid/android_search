@@ -1,5 +1,6 @@
 package com.example.recyclerviewticktock
 
+import android.content.Intent
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +10,7 @@ import android.text.style.AbsoluteSizeSpan
 import android.text.style.ForegroundColorSpan
 import android.text.style.StyleSpan
 import android.view.Menu
+import android.view.MenuItem
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -92,6 +94,19 @@ class MyListActivity : AppCompatActivity() {
         mList.add(CardDate("Ruby", R.drawable.baseline_thumb_up_off_alt_24))
         mList.add(CardDate("GO", R.drawable.baseline_thumb_up_off_alt_24))
         mList.add(CardDate("C++", R.drawable.baseline_thumb_up_off_alt_24))
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            // TODO ここに仮で、お気に入り画面に遷移する処理を入れている【仮】
+            R.id.action_edit -> {
+                // 編集ボタンタップ時
+                val intent = Intent(this@MyListActivity, FavoriteActivity::class.java)
+                startActivity(intent)
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 
 }
