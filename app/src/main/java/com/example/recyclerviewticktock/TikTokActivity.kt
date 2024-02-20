@@ -62,7 +62,7 @@ class TikTokActivity : AppCompatActivity() {
                         // サーチアイコン
                         println("アイコン5がクリックされました！")
                         // 検索画面へ遷移させる
-                        val intent = Intent(this@TikTokActivity, MainActivity::class.java)
+                        val intent = Intent(this@TikTokActivity, SearchViewActivity::class.java)
                         startActivity(intent)
 
                     }

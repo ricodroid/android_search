@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerviewticktock.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class SearchViewActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var tagRecycleView: RecyclerView
