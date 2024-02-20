@@ -22,6 +22,8 @@
         android:id="@+id/favorite_recyclerView_my_list"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:scrollbars="horizontal"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"
         app:layout_constraintBottom_toTopOf="@+id/materialCardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,8 +45,8 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="22dp"
-            android:text="お気に入り一覧"/>
+            android:text="お気に入り一覧"
+            android:textSize="22dp" />
 
     </LinearLayout>
 
