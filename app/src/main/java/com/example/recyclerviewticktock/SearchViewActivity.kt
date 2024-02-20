@@ -1,8 +1,10 @@
 package com.example.recyclerviewticktock
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.LinearLayout
 import java.util.Locale
 import android.widget.Toast
@@ -25,6 +27,8 @@ class SearchViewActivity : AppCompatActivity() {
         ViewModelProvider(this, MainViewModel.Factory(application))[MainViewModel::class.java]
     }
 
+    private lateinit var searchButton : Button
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -42,6 +46,8 @@ class SearchViewActivity : AppCompatActivity() {
             binding.recyclerView.visibility = View.VISIBLE
             binding.tagTitle.text = "検索結果"
         }
+
+        searchButton = binding.searchButton
 
         tagRecycleView = binding.tagRecyclerView
         tagRecycleView.setHasFixedSize(true)
@@ -86,6 +92,14 @@ class SearchViewActivity : AppCompatActivity() {
         addDataTolist()
         adapter = CardAdapter(mList)
         recyclerView.adapter = adapter
+
+        searchButton.setOnClickListener {
+            // 検索ボタンタップ
+            // タグをリクエストボディに付与して、APIリクエストを送る
+            // 画面を、検索画面から検索結果A画面へ遷移させる → 同じActivityなので、表示非表示で切り替え
+            binding.tagRecyclerView.visibility = View.INVISIBLE
+            binding.recyclerView.visibility = View.VISIBLE
+        }
 
     }
     private fun isLargeItem(item: TagDate): Boolean {
