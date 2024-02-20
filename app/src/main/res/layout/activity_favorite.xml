@@ -18,6 +18,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/menu_item" />
 
+    <TextView
+        android:id="@+id/favorite_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorDarkBlue"
+        android:textSize="20dp"
+        android:text="マイリスト"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/materialToolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/favorite_recyclerView_my_list"
         android:layout_width="match_parent"
@@ -27,7 +39,7 @@
         app:layout_constraintBottom_toTopOf="@+id/materialCardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/materialToolbar" />
+        app:layout_constraintTop_toBottomOf="@id/favorite_title" />
 
     <LinearLayout
         android:id="@+id/materialCardView"
@@ -46,7 +58,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="お気に入り一覧"
-            android:textSize="22dp" />
+            android:textColor="@color/colorDarkBlue"
+            android:textStyle="bold"
+            android:textSize="20dp" />
 
     </LinearLayout>
 
