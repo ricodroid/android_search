@@ -19,6 +19,9 @@
             android:exported="false" />
         <activity
             android:name=".MyListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".FavoriteActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
