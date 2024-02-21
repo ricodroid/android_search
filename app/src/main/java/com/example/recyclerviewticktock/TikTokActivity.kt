@@ -1,6 +1,8 @@
 package com.example.recyclerviewticktock
 
+import DownloadMp4Manager
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -12,32 +14,41 @@ import com.example.recyclerviewticktock.databinding.ActivityTikTokBinding
 
 class TikTokActivity : AppCompatActivity() {
     private lateinit var tikTokRecyclerView: RecyclerView
+
+    private val downloadManager = DownloadMp4Manager(this)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityTikTokBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        //動画をダウンロードしてくる
+        val videoUrl1 = "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/flower.mp4"
+        val videoUrl2 = "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/flower.mp4"
+        val videoUrl3 = "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/flower.mp4"
+        val videoUrl4 = "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/flower.mp4"
+        val videoUrl5 = "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/flower.mp4"
+        val videoUrl6 = "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/flower.mp4"
+        val fileName = "video.mp4"
+        downloadManager.downloadVideo(videoUrl1, fileName,
+            onSuccess = {
+                runOnUiThread {
+                    println("動画をダウンロードしました")
+
+                    val videoPath = downloadManager.getVideoFilePath()
+                    val videoUri = Uri.parse(videoPath)
+                    println("videoUriのURL$videoUri")
+                }
+            },
+            onFailure = {
+                it.printStackTrace()
+            }
+        )
 
         tikTokRecyclerView = binding.tiktokRecyclerView
         tikTokRecyclerView.adapter = TikTokRecyclerAdapter(this, object : OnIconClickListener {
             override fun onIconClick(v: View) {
                 // アイコンがクリックされたときの処理
                 when (v.id) {
-//                    R.id.mottoMiruButton -> {
-//                        println("もっと見るテキストがクリックされました！")
-//                        text3.text = beforeText
-//                        toggleMottoMiruButtonVisibility(mottoMiruButton, View.INVISIBLE)
-//                        toggleMottoMiruButtonVisibility(shukushouButton, View.VISIBLE)
-//                        mottoMiruButton.text = "縮小表示に戻す"
-//                    }
-//
-//                    shukushouButton -> {
-//                        println("縮小テキストがクリックされました！")
-//                        text3.text = replaceText
-//                        toggleMottoMiruButtonVisibility(shukushouButton, View.INVISIBLE)
-//                        toggleMottoMiruButtonVisibility(mottoMiruButton, View.VISIBLE)
-//                        mottoMiruButton.text = "...もっと見る"
-//                    }
-
                     R.id.icon1 -> {
                         // 人型アイコン
                         println("アイコン1がクリックされました！aa")
@@ -67,12 +78,10 @@ class TikTokActivity : AppCompatActivity() {
                         // 検索画面へ遷移させる
                         val intent = Intent(this@TikTokActivity, SearchViewActivity::class.java)
                         startActivity(intent)
-
                     }
                 }
             }
         })
-
 
         // 一つのアイテムごとに停止
         val snapHelper = PagerSnapHelper()
