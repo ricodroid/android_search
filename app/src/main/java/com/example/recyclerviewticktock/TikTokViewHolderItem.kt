@@ -1,5 +1,6 @@
 package com.example.recyclerviewticktock
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,9 +35,9 @@ class TikTokViewHolderItem(private val binding: OneLayoutBinding) :
     private var currentBadState = IconButtonState.UN_TAPPED
     private var currentSearchState = IconButtonState.UN_TAPPED
 
-    fun bind(videoPath: String, iconClickListener: OnIconClickListener) {
+    fun bind(videoPath: Uri, iconClickListener: OnIconClickListener) {
         // VideoViewの設定
-        binding.iv.setVideoPath(videoPath)
+        binding.iv.setVideoURI(videoPath)
         binding.iv.setOnPreparedListener { mp ->
             // ビデオが準備できた後に再生を開始する場合はコメントを外してください
             mp.start()
