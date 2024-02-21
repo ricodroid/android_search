@@ -96,26 +96,23 @@ class FavoriteActivity : AppCompatActivity() {
     }
 
     private fun addDataToFavoriteMyList() {
-        mFavoriteMyList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move1))
-        mFavoriteMyList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move2))
-        mFavoriteMyList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move3))
-        mFavoriteMyList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move4))
-        mFavoriteMyList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move5))
-        mFavoriteMyList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move1))
-        mFavoriteMyList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move1))
-        mFavoriteMyList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move1))
-        mFavoriteMyList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move1))
-        mFavoriteMyList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move1))
+        mFavoriteMyList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-cristian-rossa-20208157+(Original).mp4"))
+        mFavoriteMyList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-cristian-rossa-20208157+(Original).mp4"))
+        mFavoriteMyList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-bu%CC%88s%CC%A7ra-c%CC%A7akmak-20159065+(1080p).mp4"))
+        mFavoriteMyList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-bu%CC%88s%CC%A7ra-c%CC%A7akmak-20159065+(1080p).mp4"))
+        mFavoriteMyList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-bu%CC%88s%CC%A7ra-c%CC%A7akmak-20159065+(1080p).mp4"))
+        mFavoriteMyList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-cristian-rossa-20208157+(Original).mp4"))
+        mFavoriteMyList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-cristian-rossa-20208157+(Original).mp4"))
     }
 
     private fun addDataTolist() {
-        mList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move1))
-        mList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move2))
-        mList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move3))
-        mList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move3))
-        mList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move4))
-        mList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move5))
-        mList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move1))
+        mList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-cristian-rossa-20208157+(Original).mp4"))
+        mList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-cristian-rossa-20208157+(Original).mp4"))
+        mList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-bu%CC%88s%CC%A7ra-c%CC%A7akmak-20159065+(1080p).mp4"))
+        mList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-bu%CC%88s%CC%A7ra-c%CC%A7akmak-20159065+(1080p).mp4"))
+        mList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-bu%CC%88s%CC%A7ra-c%CC%A7akmak-20159065+(1080p).mp4"))
+        mList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-cristian-rossa-20208157+(Original).mp4"))
+        mList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-cristian-rossa-20208157+(Original).mp4"))
     }
 
 }

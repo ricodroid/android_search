@@ -6,11 +6,11 @@ import androidx.recyclerview.widget.RecyclerView
 
 class TikTokRecyclerAdapter(private val context: Context, private val iconClickListener: OnIconClickListener): RecyclerView.Adapter<TikTokViewHolderItem>() {
     private val videoList = listOf(
-        "android.resource://" + context.packageName + "/" + R.raw.move1,
-        "android.resource://" + context.packageName + "/" + R.raw.move2,
-        "android.resource://" + context.packageName + "/" + R.raw.move3,
-        "android.resource://" + context.packageName + "/" + R.raw.move4,
-        "android.resource://" + context.packageName + "/" + R.raw.move5,
+        "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/Video+MP4_Moon+-+testfile.org.mp4",
+        "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/Video+MP4_Moon+-+testfile.org.mp4",
+        "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/Video+MP4_Moon+-+testfile.org.mp4",
+        "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/Video+MP4_Moon+-+testfile.org.mp4",
+        "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/Video+MP4_Moon+-+testfile.org.mp4",
     )
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TikTokViewHolderItem {

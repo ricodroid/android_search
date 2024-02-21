@@ -85,11 +85,13 @@ class MyListActivity : AppCompatActivity() {
     }
 
     private fun addDataTolist() {
-        mList.add(CardDate("Java", "android.resource://" + this.packageName + "/" + R.raw.move1))
-        mList.add(CardDate("Kotlin", "android.resource://" + this.packageName + "/" + R.raw.move2))
-        mList.add(CardDate("Python","android.resource://" + this.packageName + "/" + R.raw.move3))
-        mList.add(CardDate("Swift", "android.resource://" + this.packageName + "/" + R.raw.move4))
-        mList.add(CardDate("JavaScript", "android.resource://" + this.packageName + "/" + R.raw.move5))
+        mList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-cristian-rossa-20208157+(Original).mp4"))
+        mList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-cristian-rossa-20208157+(Original).mp4"))
+        mList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-bu%CC%88s%CC%A7ra-c%CC%A7akmak-20159065+(1080p).mp4"))
+        mList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-bu%CC%88s%CC%A7ra-c%CC%A7akmak-20159065+(1080p).mp4"))
+        mList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-bu%CC%88s%CC%A7ra-c%CC%A7akmak-20159065+(1080p).mp4"))
+        mList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-cristian-rossa-20208157+(Original).mp4"))
+        mList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-cristian-rossa-20208157+(Original).mp4"))
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
