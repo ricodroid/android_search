@@ -131,12 +131,12 @@ class SearchViewActivity : AppCompatActivity() {
     }
 
     private fun addDataTolist() {
-        mList.add(CardDate("Good", R.drawable.baseline_thumb_up_off_alt_24))
-        mList.add(CardDate("Bad", R.drawable.bad))
-        mList.add(CardDate("soso", R.drawable.soso))
-        mList.add(CardDate("Happy", R.drawable.happy))
-        mList.add(CardDate("Lucky", R.drawable.lucky))
-        mList.add(CardDate("Love", R.drawable.love))
+        mList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move1))
+        mList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move2))
+        mList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move3))
+        mList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move4))
+        mList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move5))
+        mList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move1))
     }
 
     private fun addTagList() {

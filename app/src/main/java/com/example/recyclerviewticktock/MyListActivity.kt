@@ -85,15 +85,11 @@ class MyListActivity : AppCompatActivity() {
     }
 
     private fun addDataTolist() {
-        mList.add(CardDate("Java", R.drawable.baseline_thumb_up_off_alt_24))
-        mList.add(CardDate("Kotlin", R.drawable.baseline_thumb_up_off_alt_24))
-        mList.add(CardDate("Python", R.drawable.baseline_thumb_up_off_alt_24))
-        mList.add(CardDate("Swift", R.drawable.baseline_thumb_up_off_alt_24))
-        mList.add(CardDate("JavaScript", R.drawable.baseline_thumb_up_off_alt_24))
-        mList.add(CardDate("Obc", R.drawable.baseline_thumb_up_off_alt_24))
-        mList.add(CardDate("Ruby", R.drawable.baseline_thumb_up_off_alt_24))
-        mList.add(CardDate("GO", R.drawable.baseline_thumb_up_off_alt_24))
-        mList.add(CardDate("C++", R.drawable.baseline_thumb_up_off_alt_24))
+        mList.add(CardDate("Java", "android.resource://" + this.packageName + "/" + R.raw.move1))
+        mList.add(CardDate("Kotlin", "android.resource://" + this.packageName + "/" + R.raw.move2))
+        mList.add(CardDate("Python","android.resource://" + this.packageName + "/" + R.raw.move3))
+        mList.add(CardDate("Swift", "android.resource://" + this.packageName + "/" + R.raw.move4))
+        mList.add(CardDate("JavaScript", "android.resource://" + this.packageName + "/" + R.raw.move5))
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

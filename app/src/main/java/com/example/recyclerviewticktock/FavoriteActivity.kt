@@ -1,6 +1,5 @@
 package com.example.recyclerviewticktock
 
-import android.content.Context
 import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -13,7 +12,6 @@ import android.view.Menu
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerviewticktock.databinding.ActivityFavoriteBinding
 
@@ -51,14 +49,11 @@ class FavoriteActivity : AppCompatActivity() {
 
         favoriteMyListRecyclerView.setHasFixedSize(true)
 
-
-
         // 横スクロールにする
         favoriteMyListRecyclerView.layoutManager = GridHorizontalLayoutManager(this)
         addDataToFavoriteMyList()
         favoriteMyListAdapter = FavoriteMyListCardAdapter(mFavoriteMyList)
         favoriteMyListRecyclerView.adapter = favoriteMyListAdapter
-
 
         favoriteRecyclerView.setHasFixedSize(true)
         favoriteRecyclerView.layoutManager = GridLayoutManager(this, 3, RecyclerView.VERTICAL, false)
@@ -101,29 +96,26 @@ class FavoriteActivity : AppCompatActivity() {
     }
 
     private fun addDataToFavoriteMyList() {
-        mFavoriteMyList.add(CardDate("Java", R.drawable.baseline_thumb_up_off_alt_24))
-        mFavoriteMyList.add(CardDate("Kotlin", R.drawable.baseline_thumb_up_off_alt_24))
-        mFavoriteMyList.add(CardDate("Python", R.drawable.baseline_thumb_up_off_alt_24))
-        mFavoriteMyList.add(CardDate("Swift", R.drawable.baseline_thumb_up_off_alt_24))
-        mFavoriteMyList.add(CardDate("JavaScript", R.drawable.baseline_thumb_up_off_alt_24))
-        mFavoriteMyList.add(CardDate("Obc", R.drawable.baseline_thumb_up_off_alt_24))
-        mFavoriteMyList.add(CardDate("Ruby", R.drawable.baseline_thumb_up_off_alt_24))
-        mFavoriteMyList.add(CardDate("GO", R.drawable.baseline_thumb_up_off_alt_24))
-        mFavoriteMyList.add(CardDate("C++", R.drawable.baseline_thumb_up_off_alt_24))
+        mFavoriteMyList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move1))
+        mFavoriteMyList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move2))
+        mFavoriteMyList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move3))
+        mFavoriteMyList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move4))
+        mFavoriteMyList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move5))
+        mFavoriteMyList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move1))
+        mFavoriteMyList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move1))
+        mFavoriteMyList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move1))
+        mFavoriteMyList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move1))
+        mFavoriteMyList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move1))
     }
 
     private fun addDataTolist() {
-        mList.add(CardDate("Java", R.drawable.baseline_thumb_up_off_alt_24))
-        mList.add(CardDate("Kotlin", R.drawable.baseline_thumb_up_off_alt_24))
-        mList.add(CardDate("Python", R.drawable.baseline_thumb_up_off_alt_24))
-        mList.add(CardDate("Swift", R.drawable.baseline_thumb_up_off_alt_24))
-        mList.add(CardDate("JavaScript", R.drawable.baseline_thumb_up_off_alt_24))
-        mList.add(CardDate("Obc", R.drawable.baseline_thumb_up_off_alt_24))
-        mList.add(CardDate("Ruby", R.drawable.baseline_thumb_up_off_alt_24))
-        mList.add(CardDate("GO", R.drawable.baseline_thumb_up_off_alt_24))
-        mList.add(CardDate("C++", R.drawable.baseline_thumb_up_off_alt_24))
+        mList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move1))
+        mList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move2))
+        mList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move3))
+        mList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move3))
+        mList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move4))
+        mList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move5))
+        mList.add(CardDate("Good", "android.resource://" + this.packageName + "/" + R.raw.move1))
     }
-
-
 
 }

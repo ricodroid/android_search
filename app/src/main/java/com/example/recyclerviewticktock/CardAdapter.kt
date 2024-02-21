@@ -1,15 +1,15 @@
 package com.example.recyclerviewticktock
 
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
+import android.widget.VideoView
 import androidx.recyclerview.widget.RecyclerView
 
 class CardAdapter(var mList: List<CardDate>): RecyclerView.Adapter<CardAdapter.CardViewHolder>() {
     inner class  CardViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val logo: ImageView = itemView.findViewById(R.id.logoIv)
+        val logo: VideoView = itemView.findViewById(R.id.logoIv)
 //        val titleTv: TextView = itemView.findViewById(R.id.titleTv)
     }
 
@@ -26,7 +26,12 @@ class CardAdapter(var mList: List<CardDate>): RecyclerView.Adapter<CardAdapter.C
     override fun getItemCount() = mList.size
 
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
-       holder.logo.setImageResource(mList[position].logo)
-//        holder.titleTv.text = mList[position].title
+        val cardData = mList[position]
+        // VideoView を取得し、動画をセット
+        val videoView = holder.itemView.findViewById<VideoView>(R.id.logoIv)
+        videoView.setVideoURI(Uri.parse(cardData.logo))
+
+        // 動画再生を開始
+        videoView.start()
     }
 }
