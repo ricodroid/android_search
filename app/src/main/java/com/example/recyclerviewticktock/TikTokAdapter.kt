@@ -228,7 +228,7 @@ class TikTokAdapter(
     private fun updateGoodButtonImage(button: ImageView) {
         // Goodボタン：現在の状態に応じて画像を切り替える
         val imageResource = when (currentGoodState) {
-            TikTokViewHolderItem.IconButtonState.UN_TAPPED -> R.drawable.baseline_thumb_up_off_alt_24
+            TikTokViewHolderItem.IconButtonState.UN_TAPPED -> R.drawable.icon_good
             TikTokViewHolderItem.IconButtonState.TAPPED -> R.drawable.icon_good_tapped
         }
         button.setImageResource(imageResource)

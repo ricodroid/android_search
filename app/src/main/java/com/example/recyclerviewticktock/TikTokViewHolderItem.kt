@@ -1,15 +1,11 @@
 package com.example.recyclerviewticktock
 
-import DownloadMp4Manager
 import android.net.Uri
-import android.os.Handler
-import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerviewticktock.databinding.OneLayoutBinding
 
@@ -232,7 +228,7 @@ class TikTokViewHolderItem(private val binding: OneLayoutBinding) :
     private fun updateGoodButtonImage(button: ImageView) {
         // Goodボタン：現在の状態に応じて画像を切り替える
         val imageResource = when (currentGoodState) {
-            IconButtonState.UN_TAPPED -> R.drawable.baseline_thumb_up_off_alt_24
+            IconButtonState.UN_TAPPED -> R.drawable.icon_good
             IconButtonState.TAPPED -> R.drawable.icon_good_tapped
         }
         button.setImageResource(imageResource)
