@@ -16,7 +16,7 @@ class DownloadMp4Manager(private val context: Context) {
                 val inputStream = connection.getInputStream()
 
                 val outputStream = FileOutputStream(File(context.filesDir, fileName))
-                val buffer = ByteArray(1024)// ここでダウンロードの速度調整4096、2048
+                val buffer = ByteArray(1024)// ここでダウンロードの速度調整4096、2048、1024
                 var bytesRead: Int
 
                 while (inputStream.read(buffer).also { bytesRead = it } != -1) {
@@ -33,9 +33,8 @@ class DownloadMp4Manager(private val context: Context) {
         }.start()
     }
 
-    // 動画再生
+    // ダウンロードディレクトリ取得
     fun getVideoFilePath(): String {
-        // 動画ファイルのパスを返す関数。保存先のディレクトリやファイル名に注意して実装する
-        return context.filesDir.absolutePath + "/video.mp4"
+        return context.filesDir.absolutePath + "/"
     }
 }

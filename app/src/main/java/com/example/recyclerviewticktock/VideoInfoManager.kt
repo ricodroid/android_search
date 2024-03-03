@@ -1,5 +1,7 @@
 package com.example.recyclerviewticktock
 
+import android.content.Context
+
 class VideoInfoManager {
     private val videoInfos = mutableListOf<VideoInfo>()
 
@@ -41,5 +43,22 @@ class VideoInfoManager {
                 it.fileName = newFileName
             }
         }
+    }
+
+    // ダウンロードしたファイル名と一致するダウンロードしたファイルを返す
+    fun getMatchingFileNames(context: Context): List<String> {
+        val directory = context.filesDir
+        val files = directory.listFiles()
+        val videoInfos = getVideoInfos()
+
+        val matchingFileNames = mutableListOf<String>()
+
+        files?.forEach { file ->
+            if (file.isFile && videoInfos.any { it.fileName == file.name }) {
+                matchingFileNames.add(file.name)
+            }
+        }
+
+        return matchingFileNames
     }
 }
