@@ -1,5 +1,7 @@
 package com.example.recyclerviewticktock
 
+import android.content.Context
+import android.content.Intent
 import android.net.Uri
 import android.util.Log
 import android.view.LayoutInflater
@@ -9,7 +11,10 @@ import android.widget.ImageView
 import android.widget.VideoView
 import androidx.recyclerview.widget.RecyclerView
 
-class TikTokAdapter(var mList: List<CardDate>) :
+class TikTokAdapter(
+    var mList: List<CardDate>,
+    private var context: Context
+) :
     RecyclerView.Adapter<TikTokAdapter.TikTokViewHolder>() {
     inner class TikTokViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val logo: VideoView = itemView.findViewById(R.id.logoIv)
@@ -37,7 +42,7 @@ class TikTokAdapter(var mList: List<CardDate>) :
         videoView.setOnPreparedListener { mp ->
             Log.d("###", "動画を再生する")
             Log.d("###", mp.toString())
-            Log.d("###",Uri.parse(cardData.logo).toString())
+            Log.d("###", Uri.parse(cardData.logo).toString())
             mp.start()
         }
 
@@ -46,6 +51,11 @@ class TikTokAdapter(var mList: List<CardDate>) :
             // ここにアイコン1のクリック処理を記述
             // 例えば、アイコン1がクリックされた時の処理を書く
             Log.d("TikTokAdapter", "アイコン1がクリックされました")
+            // 人型アイコン
+            println("アイコン1がクリックされました！aa")
+            // マイリスト画面へ遷移する
+            val intent = Intent(context, MyListActivity::class.java)
+            context.startActivity(intent)
         }
 
         holder.itemView.findViewById<ImageView>(R.id.icon2).setOnClickListener {
@@ -66,6 +76,10 @@ class TikTokAdapter(var mList: List<CardDate>) :
         holder.itemView.findViewById<ImageView>(R.id.icon5).setOnClickListener {
             // ここにアイコン2のクリック処理を記述
             Log.d("TikTokAdapter", "アイコン5がクリックされました")
+            println("アイコン5がクリックされました！")
+            // 検索画面へ遷移させる
+            val intent = Intent(context, SearchViewActivity::class.java)
+            context.startActivity(intent)
         }
 
     }

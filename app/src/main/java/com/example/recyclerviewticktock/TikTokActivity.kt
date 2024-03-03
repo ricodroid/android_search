@@ -92,7 +92,7 @@ class TikTokActivity : AppCompatActivity() {
 
                             addDataTolist()
 
-                            adapter = TikTokAdapter(mList)
+                            adapter = TikTokAdapter(mList, this@TikTokActivity)
                             tikTokRecyclerView.adapter = adapter
                         }
                     }
