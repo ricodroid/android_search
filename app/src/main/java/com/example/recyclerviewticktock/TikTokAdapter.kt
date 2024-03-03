@@ -102,18 +102,18 @@ class TikTokAdapter(
 
         mottoMiruButton.setOnClickListener {
             println("もっと見るテキストがクリックされました！")
-            text3.text = beforeText
-            toggleMottoMiruButtonVisibility(mottoMiruButton, View.INVISIBLE)
-            toggleMottoMiruButtonVisibility(shukushouButton, View.VISIBLE)
-            mottoMiruButton.text = "縮小表示に戻す"
+            holder.itemView.findViewById<TextView>(R.id.textView3).text = beforeText
+            toggleMottoMiruButtonVisibility(holder.itemView.findViewById(R.id.mottoMiruButton), View.INVISIBLE)
+            toggleMottoMiruButtonVisibility(holder.itemView.findViewById(R.id.shukushouButton), View.VISIBLE)
+            holder.itemView.findViewById<TextView>(R.id.mottoMiruButton).text = "縮小表示に戻す"
         }
 
         shukushouButton.setOnClickListener {
             println("縮小テキストがクリックされました！")
-            text3.text = replaceText
-            toggleMottoMiruButtonVisibility(shukushouButton, View.INVISIBLE)
-            toggleMottoMiruButtonVisibility(mottoMiruButton, View.VISIBLE)
-            mottoMiruButton.text = "...もっと見る"
+            holder.itemView.findViewById<TextView>(R.id.textView3).text = replaceText
+            toggleMottoMiruButtonVisibility(holder.itemView.findViewById(R.id.shukushouButton), View.INVISIBLE)
+            toggleMottoMiruButtonVisibility(holder.itemView.findViewById(R.id.mottoMiruButton), View.VISIBLE)
+            holder.itemView.findViewById<TextView>(R.id.mottoMiruButton).text = "...もっと見る"
         }
 
         // アイコンのクリック処理を実装
