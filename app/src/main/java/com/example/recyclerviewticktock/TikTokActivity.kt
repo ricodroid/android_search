@@ -5,7 +5,6 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -108,50 +107,6 @@ class TikTokActivity : AppCompatActivity() {
         tikTokRecyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         snapHelper.attachToRecyclerView(tikTokRecyclerView)
-
-
-
-//        videoManager.getMatchingFileNames(this)
-
-//        tikTokRecyclerView = binding.tiktokRecyclerView
-//        tikTokRecyclerView.adapter = TikTokRecyclerAdapter(this, object : OnIconClickListener {
-//            override fun onIconClick(v: View) {
-//                // アイコンがクリックされたときの処理
-//                when (v.id) {
-//                    R.id.icon1 -> {
-//                        // 人型アイコン
-//                        println("アイコン1がクリックされました！aa")
-//                        // マイリスト画面へ遷移する
-//                        val intent = Intent(this@TikTokActivity, MyListActivity::class.java)
-//                        startActivity(intent)
-//                    }
-//
-//                    R.id.icon2 -> {
-//                        // スターアイコン
-//                        println("アイコン2がクリックされました！")
-//
-//                    }
-//
-//                    R.id.icon3 -> {
-//                        // グッドアイコン
-//
-//                    }
-//
-//                    R.id.icon4 -> {
-//                        // バッドアイコン
-//                    }
-//
-//                    R.id.icon5 -> {
-//                        // サーチアイコン
-//                        println("アイコン5がクリックされました！")
-//                        // 検索画面へ遷移させる
-//                        val intent = Intent(this@TikTokActivity, SearchViewActivity::class.java)
-//                        startActivity(intent)
-//                    }
-//                }
-//            }
-//        })
-//
     }
 
     private fun addDataTolist() {
@@ -170,7 +125,6 @@ class TikTokActivity : AppCompatActivity() {
 
         return videoFiles?.map { file -> CardDate(file.name, file.absolutePath) } ?: emptyList() // CardDateオブジェクトのリストを返す。nullの場合は空のリストを返す
     }
-
 }
 
 interface OnIconClickListener {

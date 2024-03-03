@@ -130,9 +130,17 @@ class SearchViewActivity : AppCompatActivity() {
     }
 
     private fun addDataTolist() {
-        mList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/flower.mp4"))
-        mList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/test_30mb.mp4"))
-        mList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-bu%CC%88s%CC%A7ra-c%CC%A7akmak-20159065+(1080p).mp4"))
+        val videoDir = filesDir // 動画ファイルが保存されているディレクトリ
+        val videoFiles = videoDir.listFiles { file -> file.extension == "mp4" } // mp4形式の動画ファイルのみを取得
+
+        videoFiles?.forEach { file ->
+            println("###検索画面で表示する動画: $file")
+            mList.add(CardDate(file.name, file.absolutePath))
+        }
+
+//        mList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/flower.mp4"))
+//        mList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/test_30mb.mp4"))
+//        mList.add(CardDate("Good", "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-bu%CC%88s%CC%A7ra-c%CC%A7akmak-20159065+(1080p).mp4"))
     }
 
     private fun addTagList() {
