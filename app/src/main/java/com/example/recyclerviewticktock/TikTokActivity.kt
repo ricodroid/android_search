@@ -15,34 +15,44 @@ import com.example.recyclerviewticktock.databinding.ActivityTikTokBinding
 class TikTokActivity : AppCompatActivity() {
     private lateinit var tikTokRecyclerView: RecyclerView
 
+
     private val downloadManager = DownloadMp4Manager(this)
+    private var videoManager = VideoInfoManager()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityTikTokBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //動画をダウンロードしてくる
-        val videoUrl1 = "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/flower.mp4"
-        val videoUrl2 = "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/flower.mp4"
-        val videoUrl3 = "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/flower.mp4"
-        val videoUrl4 = "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/flower.mp4"
-        val videoUrl5 = "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/flower.mp4"
-        val videoUrl6 = "https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/flower.mp4"
-        val fileName = "video.mp4"
-        downloadManager.downloadVideo(videoUrl1, fileName,
-            onSuccess = {
-                runOnUiThread {
-                    println("動画をダウンロードしました")
 
-                    val videoPath = downloadManager.getVideoFilePath()
-                    val videoUri = Uri.parse(videoPath)
-                    println("videoUriのURL$videoUri")
+
+        videoManager = VideoInfoManager()
+
+        videoManager.addVideoInfo("https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-bu%CC%88s%CC%A7ra-c%CC%A7akmak-20159065+(1080p).mp4", "video2.mp4")
+        videoManager.addVideoInfo("https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-bu%CC%88s%CC%A7ra-c%CC%A7akmak-20159065+(1080p).mp4", "video3.mp4")
+        videoManager.addVideoInfo("https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/pexels-bu%CC%88s%CC%A7ra-c%CC%A7akmak-20159065+(1080p).mp4", "video4.mp4")
+        videoManager.addVideoInfo("https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/flower.mp4", "video5.mp4")
+        videoManager.addVideoInfo("https://test-pvg-video-contents-bucket.s3.ap-northeast-1.amazonaws.com/flower.mp4", "video6.mp4")
+        //動画をダウンロードしてくる
+
+
+        videoManager.getVideoInfos().forEachIndexed { _, videoUrl ->
+            downloadManager.downloadVideo(videoUrl.url, videoUrl.fileName,
+                onSuccess = {
+                    runOnUiThread {
+                        println("動画をダウンロードしました")
+
+
+                        val videoPath = downloadManager.getVideoFilePath()
+                        val videoUri = Uri.parse(videoPath)
+                        println("videoUriのURL$videoUri")
+                    }
                 }
-            },
-            onFailure = {
+            ) {
+                println("動画のダウンロードに失敗しました")
+
                 it.printStackTrace()
             }
-        )
+        }
 
         tikTokRecyclerView = binding.tiktokRecyclerView
         tikTokRecyclerView.adapter = TikTokRecyclerAdapter(this, object : OnIconClickListener {

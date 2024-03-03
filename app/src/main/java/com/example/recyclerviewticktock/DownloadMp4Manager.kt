@@ -1,4 +1,5 @@
 import android.content.Context
+import android.net.Uri
 import java.io.File
 import java.io.FileOutputStream
 import java.net.URL
@@ -15,7 +16,7 @@ class DownloadMp4Manager(private val context: Context) {
                 val inputStream = connection.getInputStream()
 
                 val outputStream = FileOutputStream(File(context.filesDir, fileName))
-                val buffer = ByteArray(1024)
+                val buffer = ByteArray(1024)// ここでダウンロードの速度調整4096、2048
                 var bytesRead: Int
 
                 while (inputStream.read(buffer).also { bytesRead = it } != -1) {

@@ -1,11 +1,15 @@
 package com.example.recyclerviewticktock
 
+import DownloadMp4Manager
 import android.net.Uri
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerviewticktock.databinding.OneLayoutBinding
 
@@ -40,7 +44,7 @@ class TikTokViewHolderItem(private val binding: OneLayoutBinding) :
         binding.iv.setVideoURI(videoPath)
         binding.iv.setOnPreparedListener { mp ->
             // ビデオが準備できた後に再生を開始する場合はコメントを外してください
-            mp.start()
+//            mp.start()
         }
         text1 = binding.textView1
         text2 = binding.textView2
